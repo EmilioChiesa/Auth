@@ -11,14 +11,18 @@ import { RoleModule } from './role/role.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(
-    {
+  imports: [
+    TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'tp.db',
       entities: [User, Role, Permission],
       synchronize: true,
-    }
-  ), UsersModule, PermissionModule, RoleModule, AuthModule],
+    }),
+    UsersModule,
+    PermissionModule,
+    RoleModule,
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
