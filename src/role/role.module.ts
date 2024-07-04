@@ -1,3 +1,4 @@
+//Importo las dependencias necesarias
 import { Module } from '@nestjs/common';
 import { RoleController } from './role.controller';
 import { RoleService } from './role.service';
@@ -7,7 +8,7 @@ import { Permission } from 'src/entities/permission.entity';
 
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Role,Permission])],
+  imports: [TypeOrmModule.forFeature([Role,Permission])], //Defino las entidades que voy a utilizar
   controllers: [RoleController],
   providers: [RoleService]
 })

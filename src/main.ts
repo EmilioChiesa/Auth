@@ -6,7 +6,7 @@ async function bootstrap() {
 
   // Configurar CORS globalmente
   app.enableCors({
-    origin: 'http://localhost:4200',  // Reemplaza con el origen de tu frontend Angular
+    origin: 'http://localhost:4200',  //Defino el origen permitido
     credentials: true,  // Habilita el intercambio de cookies y credenciales
   });
 

@@ -1,3 +1,4 @@
+//Importo todas las dependencias necesarias
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,11 +13,11 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'tp.db',
-      entities: [User, Role, Permission],
-      synchronize: true,
+    TypeOrmModule.forRoot({ //Configuración de la conexión a la base de datos
+      type: 'sqlite', //Tipo de base de datos
+      database: 'tp.db', //Nombre de la base de datos
+      entities: [User, Role, Permission], //Entidades a utilizar
+      synchronize: true, //Sincronizar la base de datos
     }),
     UsersModule,
     PermissionModule,

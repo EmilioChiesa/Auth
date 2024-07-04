@@ -1,4 +1,4 @@
-// src/auth/auth.module.ts
+//Importo las dependencias necesarias
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { UsersModule } from '../users/users.module';
@@ -10,14 +10,14 @@ import { AuthGuard } from './auth.guard';
 @Module({
   imports: [
     UsersModule,
-    JwtModule.register({
-      global: true,
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+    JwtModule.register({ //Registro el módulo de JWT
+      global: true, //Defino el alcance global
+      secret: jwtConstants.secret, //Defino la clave secreta
+      signOptions: { expiresIn: '60s' }, //Defino el tiempo de expiración del token
     }),
   ],
-  providers: [AuthService,AuthGuard],
+  providers: [AuthService,AuthGuard], //Defino los servicios a utilizar
   controllers: [AuthController],
-  exports: [AuthService],
+  exports: [AuthService], //Exporto el servicio de autenticación
 })
 export class AuthModule {}
